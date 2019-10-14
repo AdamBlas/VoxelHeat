@@ -15,6 +15,8 @@ public class CubeCreator : MonoBehaviour
     private Cube[,,] cubes = new Cube[9, 9, 9];
     public Cube cubePrefab;
 
+    private CameraPositioner cameraPositioner;
+
     void Start()
     {
         for (int i = 0; i < img.Length; i++)
@@ -22,7 +24,9 @@ public class CubeCreator : MonoBehaviour
         img[selectedDim].color = selectedColor;
 
         for (int i = 0; i < dim.Length; i++)
-            dim[i].text = "1";
+            dim[i].text = "0";
+
+        cameraPositioner = GetComponent<CameraPositioner>();
     }
 
     void Update()
@@ -80,5 +84,9 @@ public class CubeCreator : MonoBehaviour
                 }
             }
         }
+
+        cameraPositioner.UpdateCameras((float.Parse(dim[0].text) / 2) + 0.5f, 
+                                       (float.Parse(dim[1].text) / 2) + 0.5f, 
+                                       (float.Parse(dim[2].text) / 2) + 0.5f);
     }
 }
