@@ -24,9 +24,10 @@ public class CubeCreator : MonoBehaviour
         img[selectedDim].color = selectedColor;
 
         for (int i = 0; i < dim.Length; i++)
-            dim[i].text = "0";
+            dim[i].text = "1";
 
         cameraPositioner = GetComponent<CameraPositioner>();
+        ChangeSize();
     }
 
     void Update()
