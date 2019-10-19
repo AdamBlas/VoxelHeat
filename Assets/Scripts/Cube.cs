@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    new public MeshRenderer renderer;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        renderer = GetComponent<MeshRenderer>();
+
+        renderer.material.color = new Color(1, 1, 1, 1f);
     }
 }
