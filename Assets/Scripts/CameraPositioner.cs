@@ -13,6 +13,11 @@ public class CameraPositioner : MonoBehaviour
         topCamera.position = new Vector3(x, 100, z);
         sideCamera.position = new Vector3(-100, y, z);
 
+        frontCamera.GetComponent<Camera>().orthographicSize = Mathf.Max(x, y) + 1;
+        topCamera.GetComponent<Camera>().orthographicSize = Mathf.Max(x, z) + 1;
+        sideCamera.GetComponent<Camera>().orthographicSize = Mathf.Max(y, z) + 1;
+        
+
         mainCamera.lookAtPoint = new Vector3(x, y, z);
         mainCamera.LookAtPoint();
     }
